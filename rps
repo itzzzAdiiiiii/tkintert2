@@ -1,0 +1,22 @@
+from tkinter import *
+import tkinter.font as font
+import random
+
+player_score = 0
+comp_score = 0
+screen = Tk()
+screen.title("rock paper scissors")
+f = font.Font(size = 14)
+rps = Label(text = "Rock Paper Scissors", font = font.Font(size = 26), fg = "grey")
+rps.pack()
+winner = Label(text = "Select a button below", font = font.Font(size = 14), fg = "green")
+winner.pack()
+frame = Frame(screen)
+frame.pack()
+rock = Button(frame,text = "Rock", width = 12, bg =  "pink", font = font.Font(size = 12))
+rock.grid(row = 0, column= 0)
+paper = Button(frame,text = "Paper", width = 12, bg =  "silver", font = font.Font(size = 12))
+paper.grid(row = 0, column= 1)
+scissors = Button(frame,text = "scissors", width = 12, bg =  "light blue", font = font.Font(size = 12))
+scissors.grid(row = 0, column= 2)
+screen.mainloop()
