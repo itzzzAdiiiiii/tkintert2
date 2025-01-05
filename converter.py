@@ -5,6 +5,10 @@ screen = Tk()
 def conversion():
     Gram = float(value.get())*1000
     gram.insert(END,Gram)
+    Pound = float(value.get())*2.20462
+    pound.insert(END,Pound)
+    Ounce = float(value.get())*35.27
+    ounce.insert(END,Ounce)
 
 #creating label widgets 
 kgs = Label(screen,text= "enter the weight in kgs")
@@ -23,7 +27,7 @@ pounds.grid(row = 1, column = 1)
 ounces.grid(row= 1, column= 2)
 Input.grid(row = 0, column = 2)
 gram.grid(row = 2, column = 0)
-ounce.grid(row = 2, column = 1)
-pound.grid(row = 2, column = 2)
+ounce.grid(row = 2, column = 2)
+pound.grid(row = 2, column = 1)
 convert.grid(row = 0, column = 0)
 screen.mainloop()
