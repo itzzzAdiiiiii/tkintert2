@@ -1,0 +1,8 @@
+from tkinter import *
+from tkinter.ttk import *
+from time import strftime
+screen = Tk()
+screen.title("clockity clock")
+label = Label(screen,font = ("ariel", 10,"bold"),background = "brown",foreground = "white")
+label.pack()
+mainloop()
