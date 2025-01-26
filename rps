@@ -28,6 +28,62 @@ def tie():
 def select(player_input):
     global player_score, comp_score
     print (player_input)
+    computer_input = comp_choice()
+    print(computer_input)
+    player_choice.config(text = 'you selected:'+player_input[0])
+    computer_choice.config(text = 'computer selected:'+computer_input[0])
+    if computer_input == player_input:
+        tie()
+    #if player = rock
+    if player_input[1]==0:
+        if computer_input[1]==1:
+            comp_win()
+        elif computer_input[1]==2:
+            player_win()
+    #if player = paper
+    elif player_input[1]==1:
+        if computer_input[1]==0:
+            player_win()
+        elif computer_input[1]==2:
+            comp_win()
+    #if player = scissors 
+    elif player_input[1]==2:
+        if computer_input[1]==0:
+            comp_win()
+        elif computer_input[1]==1:
+            player_win()
+def comp_choice():
+    return random.choice(Op)
+
+rps = Label(text = "Rock Paper Scissors", font = font.Font(size = 26), fg = "grey")
+rps.pack()
+winner = Label(text = "Select a button below", font = font.Font(size = 14), fg = "green")
+winner.pack()
+frame = Frame(screen)
+frame.pack()
+options = Label(frame,text = "Your options:", font = font.Font(size = 14), fg = "gray")
+options.grid(row = 0, column = 0)
+rock = Button(frame,text = "Rock", width = 12, bg =  "pink", font = font.Font(size = 12),command = lambda:select(Op[0]))
+rock.grid(row = 1, column= 0)
+paper = Button(frame,text = "Paper", width = 12, bg =  "silver", font = font.Font(size = 12),command = lambda:select(Op[1]))
+paper.grid(row = 1, column= 1)
+scissors = Button(frame,text = "scissors", width = 12, bg =  "light blue", font = font.Font(size = 12),command = lambda:select(Op[2]))
+scissors.grid(row = 1, column= 2)
+score = Label(frame,text = "score:", font = font.Font(size = 14), fg = "gray")
+score.grid(row = 2, column = 0)
+player_choice = Label(frame,text = "you selected:", font = font.Font(size = 14), fg = "black")
+player_choice.grid(row = 3, column = 0)
+player_score1 = Label(frame,text = "player score:", font = font.Font(size = 14), fg = "black")
+player_score1.grid(row = 3, column = 2)
+computer_choice = Label(frame,text = "computer selected:", font = font.Font(size = 14), fg = "black")
+computer_choice.grid(row = 4, column = 0)
+computer_score1 = Label(frame,text = "computer score:", font = font.Font(size = 14), fg = "black")
+computer_score1.grid(row = 4, column = 2)
+screen.resizable(0,0) #disabling resizing
+screen.geometry("650x250")
+screen.mainloop()
+    global player_score, comp_score
+    print (player_input)
     computer_input = get_comp_choice()
     print(computer_input)
     player_choice.config(text = 'you selected:'+player_input[0])
