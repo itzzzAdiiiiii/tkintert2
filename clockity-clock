@@ -1,15 +1,23 @@
-
 from tkinter import *
-from tkinter.ttk import *
+#from tkinter.ttk import *
 from time import strftime
 screen = Tk()
+screen.config(background = "purple")
+screen.geometry("250x100")
 screen.title("clockity clock")
 #function for digital clock
 def display():
     string =strftime('%H:%M:%S %p')
     label.config(text = string)
     label.after(1000,display)
-label = Label(screen,font = ("ariel", 10,"bold"),background = "brown",foreground = "white")
-label.pack(anchor = 'center')
+def display2():
+    string2 =strftime('%A, %d %B %Y')
+    label2.config(text = string2)
+label2 = Label(screen,font = ("ariel", 20,"bold"),bg = "purple",fg = "lavender")
+label2.pack(side =TOP)
+label = Label(screen,font = ("ariel", 225,"bold"),bg = "purple",fg = "lavender")
+label.pack(expand = True)
+
+display2()
 display()
-mainloop()
+screen.mainloop()
