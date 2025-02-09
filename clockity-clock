@@ -14,9 +14,9 @@ def display2():
     string2 =strftime('%A, %d %B %Y')
     label2.config(text = string2)
 label2 = Label(screen,font = ("ariel", 20,"bold"),bg = "purple",fg = "lavender")
-label2.pack(side =TOP)
+label2.pack(pady = 200)
 label = Label(screen,font = ("ariel", 225,"bold"),bg = "purple",fg = "lavender")
-label.pack(expand = True)
+label.pack(expand = True,pady = (10,400))
 
 display2()
 display()
