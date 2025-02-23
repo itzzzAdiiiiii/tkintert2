@@ -1,0 +1,14 @@
+from tkinter import *
+from tkinter.ttk import *
+screen =  Tk()
+screen.geometry("800x600")
+screen.title("tablesssss")
+
+label1 = Label(screen,text = "Mathematical Tables", font = ("arial",25)).place(x=300,y=0)
+label2 = Label(screen,text = "Number and Range:", font = ("arial",20)).place(x=100,y=100)
+
+ddm = IntVar()
+#combo box = drop down menu
+cb = Combobox(screen,textvariable=ddm,width = 7).place(x=200, y=100)
+cb['values'] = tuple(range(99))
+screen.mainloop()
