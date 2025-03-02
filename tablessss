@@ -10,7 +10,7 @@ label2 = Label(screen,text = "Number and Range:", font = ("arial",20)).place(x=1
 ddm = IntVar()
 #combo box = drop down menu
 cb = Combobox(screen,textvariable=ddm,width = 7)
-cb['values'] = tuple(range(100))
+cb['values'] = tuple(range(101))
 cb.place(x=380, y=110)
 
 #radio button
@@ -23,8 +23,11 @@ val2.place(x=500,y=125)
 val3.place(x=500,y=150)
 rb.set(10)
 
+#creating frame
+frame = Frame(screen)
+frame.place(x=100,y=170,width=600,height=400)
 #scrollbar
-scroll = Scrollbar(screen)
+scroll = Scrollbar(frame,orient=VERTICAL)
 scroll.pack(side=RIGHT,fill=Y)
 
 #function 4 table
@@ -32,12 +35,17 @@ def generate():
     vart = ""
     for i in range(rb.get()+1):
         vart+=str(ddm.get())+" x "+str(i)+" = "+str(ddm.get()*i)+"\n"
-        tables.configure(text = vart)
+    tables.insert(END, vart)
+    tables.yview_moveto(0)
+
 #button
 generator = Button(screen,text="generate",command=generate)
 generator.place(x=580,y=110)
 
-#label for tables
-tables = Label(screen,anchor ="center")
-tables.place(x=100,y=150)
+#Text for tables
+tables = Text(frame,wrap=NONE,yscrollcommand=scroll.set, font = ("Arial",14))
+tables.pack(expand = True, fill = BOTH)
+
+scroll.config(command = tables.yview)
+
 screen.mainloop()
