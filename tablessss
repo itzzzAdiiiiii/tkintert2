@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter.ttk import *
 screen =  Tk()
-screen.geometry("800x600")
+screen.geometry("800x1000")
 screen.title("tablesssss")
 
 label1 = Label(screen,text = "Mathematical Tables", font = ("arial",25)).place(x=300,y=0)
@@ -10,6 +10,34 @@ label2 = Label(screen,text = "Number and Range:", font = ("arial",20)).place(x=1
 ddm = IntVar()
 #combo box = drop down menu
 cb = Combobox(screen,textvariable=ddm,width = 7)
-cb['values'] = tuple(range(99))
-cb.place(x=200, y=100)
+cb['values'] = tuple(range(100))
+cb.place(x=380, y=110)
+
+#radio button
+rb = IntVar()
+val1 = Radiobutton(screen,text="10",variable=rb,value=10)
+val2 = Radiobutton(screen,text="20",variable=rb,value=20)
+val3 = Radiobutton(screen,text="100",variable=rb,value=100)
+val1.place(x=500,y=100)
+val2.place(x=500,y=125)
+val3.place(x=500,y=150)
+rb.set(10)
+
+#scrollbar
+scroll = Scrollbar(screen)
+scroll.pack(side=RIGHT,fill=Y)
+
+#function 4 table
+def generate():
+    vart = ""
+    for i in range(rb.get()+1):
+        vart+=str(ddm.get())+" x "+str(i)+" = "+str(ddm.get()*i)+"\n"
+        tables.configure(text = vart)
+#button
+generator = Button(screen,text="generate",command=generate)
+generator.place(x=580,y=110)
+
+#label for tables
+tables = Label(screen,anchor ="center")
+tables.place(x=100,y=150)
 screen.mainloop()
