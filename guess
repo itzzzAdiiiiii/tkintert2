@@ -1,0 +1,35 @@
+from tkinter import *
+import random
+from tkinter import messagebox
+screen = Tk()
+screen.title("guesssss")
+
+#generating random numbers
+def randomness():
+    var1 = random.randint(1,33)
+    var2 = random.randint(1,33)
+    return var1,var2, var1*var2
+#checking result
+def check():
+    guessed = int(guess.get())
+    if guessed == result:
+        messagebox.showinfo("Correct!", "Your guess is correct")
+    else: 
+        messagebox.showerror("Not correct :(", "Try again")
+#accepting variables
+var1,var2,result = randomness()
+
+
+#creating widgets
+prompt = Label(screen,text="guess the product of " + str(var1) + " and ?")
+prompt.pack()
+guess = Entry(screen)
+guess.pack()
+checkk = Button(screen,text="Check?",command = check)
+checkk.pack()
+def newgame():
+    global var1,var2,result
+reset = Button(screen,text="New game?")
+reset.pack()
+
+screen.mainloop()
