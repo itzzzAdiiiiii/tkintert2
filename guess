@@ -29,7 +29,7 @@ checkk = Button(screen,text="Check?",command = check)
 checkk.pack()
 def newgame():
     global var1,var2,result
-reset = Button(screen,text="New game?")
+reset = Button(screen,text="New game?",command = randomness)
 reset.pack()
 
 screen.mainloop()
