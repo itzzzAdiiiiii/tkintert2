@@ -1,35 +1,46 @@
-from tkinter import *
-import random
-from tkinter import messagebox
-screen = Tk()
-screen.title("guesssss")
+from tkinter import * 
+from tkinter.filedialog 
+def openFile():
+    #opens file using dialogue 
+    fin = askopenfile(title:"Open File")
+    if fin is not None:
+        #delete items in listbox
+        listbox.delete(0,END)
+        #read from file
+        items = fin.readlines()
+        #insert to listbox
+        for item in items:
+            listbox.insert(END items.strip())
 
-#generating random numbers
-def randomness():
-    var1 = random.randint(1,33)
-    var2 = random.randint(1,33)
-    return var1,var2, var1*var2
-#checking result
-def check():
-    guessed = int(guess.get())
-    if guessed == result:
-        messagebox.showinfo("Correct!", "Your guess is correct")
-    else: 
-        messagebox.showerror("Not correct :(", "Try again")
-#accepting variables
-var1,var2,result = randomness()
+def saveFile()
+    #get file using dialgue
+    #default extension is optional  here will add .txt if misssing
+    fout = asksaveasfile( defaulttextextension = ".txt")
+    #if filename is selected
+    if fout is not None:
+        #get items in listbox and add to file
+        for item in listbox.get(0,END):
+            print(item.strip(),file = fout)
+           # delete items in listbox
+            listbox.delete(0, END)
 
+def addItem():
+    listbox.insert(END,item.get)
+    #delete from textbook
+    item.delete(0,END)
 
-#creating widgets
-prompt = Label(screen,text="guess the product of " + str(var1) + " and ?")
-prompt.pack()
-guess = Entry(screen)
-guess.pack()
-checkk = Button(screen,text="Check?",command = check)
-checkk.pack()
-def newgame():
-    global var1,var2,result
-reset = Button(screen,text="New game?",command = randomness)
-reset.pack()
+def deleteItem():
+#get sleected line index
+    index = listbox.curselection():
+    if index:
+        listbox.delete(index)
 
-screen.mainloop()
+fopen = Button(screen,text = "OPEN", command = openFile, width =15)
+lDElete = Button(screen,text = "DELETE", command = deleteFile, width =15)
+fsave = Button(screen,text = "SAVE", command = saveFile, width =15)
+fopen = pack(side = LEFT, padx=5,pady=5)
+lDElete = pack(side = RIGHT, padx=5,pady=5)
+fsave = pack(padx=5,pady=5)
+
+lAdd = Buttom(screen,)
+
