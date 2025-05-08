@@ -1,0 +1,6 @@
+import cv2
+img = cv2.imread("pika.png",cv2.IMREAD_COLOR)
+cv2.imshow("Pikachu Image", img)
+cv2.waitkey(0)
+cv2.destroyAllWindows()
+import cv2
