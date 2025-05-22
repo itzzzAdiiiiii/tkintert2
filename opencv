@@ -1,38 +1,42 @@
-import cv2
-img = cv2.imread("pika.png",cv2.IMREAD_COLOR)
-cv2.imshow("Pikachu Image", img)
+import cv2 
+
+image=cv2.imread('pika.png')
+cv2.imshow('Original Image',image)
+cv2.waitkey(0)
+gray_image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+cv2.imshow('Grayscale Image', gray_image)
 cv2.waitkey(0)
 cv2.destroyAllWindows()
-img = cv2.imread("pika.png",cv2.0)
-cv2.imshow("Pikachu Image", img)
+
+import cv2
+img = cv2.imread('pika.png')
+(row,col) = img.shape[0:2]
+
+for i in range(row):
+    for j in range(col):
+        img[i,j] = sum(img[i,j])*.33
+
+cv2.imshow('Grayscale Image', img)
 cv2.waitkey(0)
 cv2.destroyAllWindows()
+
 import cv2
-img = cv2.imread("pika.png",0)
-cv2.imshow("Pikachu in greyscale", img)
+img = cv2.imread("pika.png")
+(row,col) = img.shape[:2]
+
+M = cv2.getRotationMatrix2D((cols / 2,rows / 2), 90,1)
+res =cv2.warpAffine(img,M(cols, rows))
+
+cv2.imwrite('result.jpg',res)
+import cv2
+img = cv2.imread('pika.png')
+edges = cv2.Canny(img,100,200)
+cv2.imwrite('result.jpg',edges)
+
+import cv2
+img = cv2.imread("pika.png")
+hsvImage - cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+
+cv2.imshow('Grayscale Image', img)
 cv2.waitkey(0)
 cv2.destroyAllWindows()
-import cv2
-import os
-saved_directory = "DO LATER"
-img = cv2.imread("pika.png",cv2.0)
-cv2.imshow("Pikachu Image in Black and White", img)
-cv2.imwrite("pikaBlackandWhite.png",img)
-print("Succesfully Saved")
-cv2.waitkey(delay = 5000)
-cv2.destroyAllWindows()
-import cv2
-image = cv2.imread("pika.png",1)
-B, G, R = cv2.spliy(image)
-cv2.imshow("original",image)
-cv2.waitkey(delay=5000)
-cv2.imshow("Blue saturation image ",B)
-cv2.waitkey(delay=5000)
-cv2.imshow("Green Saturation immage",G)
-cv2.waitkey(delay=5000)
-cv2.imshow("Red saturation image",R)
-cv2.waitkey(delay=5000)
-cv2.destroywindow("Original")
-cv2.destroywindow("Blue saturation image ")
-cv2.destroywindow("Green Saturation immage")
-cv2.destroywindow("Red saturation image ")
